@@ -1,0 +1,9 @@
+//
+// Prefix header for all source files of the 'TRIPFrameworkTemplate' target in the 'TRIPFrameworkTemplate' project
+//
+
+#ifdef __OBJC__
+
+#import <Foundation/Foundation.h>
+
+#endif
