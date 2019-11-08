@@ -222,6 +222,10 @@ LokieHookAction::check_valid(){
     for (NSInteger index = 2; index < count; index ++ ){
         std::string lhs([methodSignature getArgumentTypeAtIndex:index]);
         std::string rhs([blockSignature  getArgumentTypeAtIndex:index]);
+        
+        //！fix: 参数列表存在block时不一致问题 （多谢 ruikaili 提出这个问题）
+        if (rhs.find("@?") == 0) rhs="@?";
+        
         this->is_same_type_encoding(lhs, rhs);
         LOKIE_CHECK_ERROR(this->is_same_type_encoding(lhs, rhs), @"block和selector参数类型不匹配");
     }
